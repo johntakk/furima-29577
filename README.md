@@ -66,3 +66,18 @@ Things you may want to cover:
 
 ### items Association
 - belongs_to : users
+
+## purchases テーブル
+
+| Column              | Type   | Options     |
+| ------------------- | ------ | ----------- |
+| card_num            | integer | null: false |
+| card_valid          | integer | null: false |
+| card_security_num   | integer | null: false |
+| postal_code         | integer| null: false |
+| prefecture          | string | null: false |
+| city                | string | null: false |
+| detail_address      | string | null: false |
+| tel_num             | integer | null: false |
+
+### purchases Association
