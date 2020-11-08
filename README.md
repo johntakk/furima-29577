@@ -31,14 +31,11 @@ Things you may want to cover:
 | ----------------------- | ------ | ----------- |
 | nickname                | string | null: false |
 | email                   | string | null: false |
-| password                | string | null: false |
-| password_confirmation   | string | null: false |
+| encrypted_password      | string | null: false |
 | family_name_jp_kanji    | string | null: false |
 | first_name_jp_kanji     | string | null: false |
 | family_name_jp_katakana | string | null: false |
-| birthday_year           | integer | null: false |
-| birthday_month          | integer | null: false |
-| birthday_date           | integer | null: false |
+| birthday　　　           | date   | null: false |
 
 ### users Association
 - has_many :items
@@ -48,14 +45,13 @@ Things you may want to cover:
 
 | Column              | Type   | Options     |
 | ------------------- | ------ | ----------- |
-| image               | string | null: false |
 | name                | string | null: false |
 | description         | text | null: false |
 | category            | string | null: false |
 | condition           | string | null: false |
-| delivery_term       | string | null: false |
-| delivery_area       | string | null: false |
-| delivery_estimate   | string | null: false |
+| delivery_term_id       | integer | null: false |
+| delivery_area_id       | integer | null: false |
+| delivery_estimate_id   | integer | null: false |
 | price               | integer | null: false |
 
 ### items Association
