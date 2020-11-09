@@ -50,7 +50,7 @@ Things you may want to cover:
 | name                | string | null: false |
 | description         | text | null: false |
 | category_id         | integer | null: false |
-| condition-i         | integer | null: false |
+| condition-id         | integer | null: false |
 | delivery_term_id       | integer | null: false |
 | delivery_area_id       | integer | null: false |
 | delivery_estimate_id   | integer | null: false |
