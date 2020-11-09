@@ -25,6 +25,7 @@ Things you may want to cover:
 
 # テーブル設計
 
+
 ## users テーブル
 
 | Column                  | Type   | Options     |
@@ -35,6 +36,7 @@ Things you may want to cover:
 | family_name_jp_kanji    | string | null: false |
 | first_name_jp_kanji     | string | null: false |
 | family_name_jp_katakana | string | null: false |
+| first_name_jp_katakana  | string | null: false |
 | birthday　　　           | date   | null: false |
 
 ### users Association
@@ -47,8 +49,8 @@ Things you may want to cover:
 | ------------------- | ------ | ----------- |
 | name                | string | null: false |
 | description         | text | null: false |
-| category            | string | null: false |
-| condition           | string | null: false |
+| category_id         | integer | null: false |
+| condition-i         | integer | null: false |
 | delivery_term_id       | integer | null: false |
 | delivery_area_id       | integer | null: false |
 | delivery_estimate_id   | integer | null: false |
@@ -62,7 +64,6 @@ Things you may want to cover:
 | Column  | Type       | Options                        |
 | ------  | ---------- | ------------------------------ |
 | users   | references | null: false, foreign_key: true |
-| room    | references | null: false, foreign_key: true |
 
 ### items Association
 - belongs_to : users
@@ -71,13 +72,10 @@ Things you may want to cover:
 
 | Column              | Type   | Options     |
 | ------------------- | ------ | ----------- |
-| card_num            | integer | null: false |
-| card_valid          | integer | null: false |
-| card_security_num   | integer | null: false |
 | postal_code         | integer| null: false |
-| prefecture          | string | null: false |
+| prefecture_id          | integer | null: false |
 | city                | string | null: false |
 | detail_address      | string | null: false |
-| tel_num             | integer | null: false |
+| tel_num             | string | null: false |
 
 ### purchases Association
