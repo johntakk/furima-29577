@@ -7,6 +7,9 @@ RSpec.describe User, type: :model do
     it 'nicknameが空だと登録できない' do
       @user.nickname = ''
       @user.valid?
+      # binding.pry
+      # => false
+      # @user.errors.full_messages
       expect(@user.errors.full_messages).to include("Nickname can't be blank")
     end
 
@@ -33,6 +36,12 @@ RSpec.describe User, type: :model do
       @user.password_confirmation = ''
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+    end
+
+    it 'family_name_jp_kanjiが空では登録できない' do
+      @user.family_name_jp_kanji = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("family_name_jp_kanji can't be blank")
     end
   end
 end
