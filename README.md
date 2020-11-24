@@ -39,6 +39,7 @@ Things you may want to cover:
 | first_name_jp_katakana  | string | null: false |
 | birthday                | date   | null: false |
 
+
 ### users Association
 - has_many :items
 - has_many :comments
