@@ -37,7 +37,8 @@ Things you may want to cover:
 | first_name_jp_kanji     | string | null: false |
 | family_name_jp_katakana | string | null: false |
 | first_name_jp_katakana  | string | null: false |
-| birthday　　　           | date   | null: false |
+| birthday                | date   | null: false |
+
 
 ### users Association
 - has_many :items
