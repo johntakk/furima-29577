@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
   validates :birthday, presence: true
-  with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: 'Full-width characters  ' } do
+  with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: 'Full-width characters' } do
    validates :family_name_jp_kanji, presence: true
    validates :first_name_jp_kanji, presence: true
    validates :family_name_jp_katakana, presence: true
