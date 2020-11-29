@@ -1,14 +1,15 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :show]
-  before_action :move_to_index, except: [:index, :show, :search]
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update]
 
   def index
   end
 
   def new
+    @item = Item.new
   end
 
   def create
+    Item.create(item_params)
   end
 
   def destroy
@@ -28,7 +29,4 @@ class ItemsController < ApplicationController
 
   private
 
-  def move_to_index
-    redirect_to action: :index unless user_signed_in?
-  end
 end
