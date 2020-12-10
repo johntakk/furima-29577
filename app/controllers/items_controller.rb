@@ -9,7 +9,12 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(item_params)
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -28,8 +33,11 @@ class ItemsController < ApplicationController
   end
 
   private
-  def message_params #これいる？
-    params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
+
+  def item_params 
+    params.require(:item).permit(:image, :name, :explanation, :category_id, :status_id, :delivery_term_id, :delivery_from_id, :delivery_leadtime_id, :price).merge(user_id: current_user.id)
   end
 
 end
+
+
