@@ -84,5 +84,9 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include("Price is not included in the list")
     end
+    it '全ての情報が正しく入力されていれば出品できる' do
+      expect(@item).to be_valid
+    end
+
   end
 end

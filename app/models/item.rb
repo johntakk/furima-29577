@@ -6,11 +6,13 @@ class Item < ApplicationRecord
   validates :image
   validates :name
   validates :explanation
-  validates :category_id, numericality: { other_than: 1 } 
-  validates :status_id, numericality: { other_than: 1 } 
-  validates :delivery_term_id, numericality: { other_than: 1 } 
-  validates :delivery_from_id, numericality: { other_than: 1 } 
-  validates :delivery_leadtime_id, numericality: { other_than: 1 } 
+  with_options numericality: { other_than: 1 } do
+  validates :category_id
+  validates :status_id
+  validates :delivery_term_id
+  validates :delivery_from_id
+  validates :delivery_leadtime_id
+  end
   validates :price
   validates_inclusion_of :price, in: 300..9999999
   end
