@@ -14,4 +14,5 @@ class User < ApplicationRecord
    validates :family_name_jp_katakana, presence: true
    validates :first_name_jp_katakana, presence: true
   end
+  has_many :items
 end
