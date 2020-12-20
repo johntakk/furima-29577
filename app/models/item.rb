@@ -20,6 +20,5 @@ class Item < ApplicationRecord
   belongs_to :delivery_from
   belongs_to :delivery_leadtime
   belongs_to :status
-  belongs_to :delivery_term
   
 end
