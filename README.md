@@ -69,7 +69,15 @@ Things you may want to cover:
 ### items Association
 - belongs_to : users
 
-## purchases テーブル
+## order history テーブル
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| item   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
+
+
+## deliver_to テーブル
 
 | Column              | Type   | Options     |
 | ------------------- | ------ | ----------- |
@@ -79,4 +87,5 @@ Things you may want to cover:
 | detail_address      | string | null: false |
 | tel_num             | string | null: false |
 
-### purchases Association
+### deliver to Association
+
