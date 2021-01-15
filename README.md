@@ -89,3 +89,13 @@ Things you may want to cover:
 
 ### deliver to Association
 
+1 todo 各モデル作成
+rails g model order_history
+rails g model delivery_to
+
+2 todo マイグレーションファイルにカラム作成
+例)t.string :nickname,           null: false, default: ""
+
+3 todo
+rails db:migrate
+エラー出てる

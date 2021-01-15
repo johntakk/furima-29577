@@ -6,10 +6,17 @@ class Order
 
   with_options presence: true do
     validates :token
-    validates :
-    validates :
-
+    validates :item_id
+    validates :user_id
+    validates :postal_code
+    validates :prefecture_id
+    validates :city
+    validates :detail_address
+    validates :tel_num
+  
   def save
     # 各テーブルにデータを保存する処理を書く
+    order_history=OrderHistory.create(item_id: item_id,user_id: user_id)
+    DeliveryTo.create(:postal_code: postal_code,prefecture_id: prefecture_id,city: city,detail_address: detail_address,tel_num: tel_num)
   end
 end
