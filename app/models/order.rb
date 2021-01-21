@@ -7,11 +7,11 @@ class Order
     validates :token
     validates :item_id
     validates :user_id
-    validates :postal_code
+    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'はハイフンが必要です' }
     validates :prefecture_id
     validates :city
     validates :detail_address
-    validates :tel_num
+    validates :tel_num, length: { maximum: 11 }
   end
   
   def save

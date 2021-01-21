@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
   def index
   @item = Item.find(params[:item_id])
-  if user_signed_in? && current_user != @item.user
+  # binding.pry
+  if user_signed_in? && current_user != @item.user && @item.order_history == nil
     @order = Order.new
     elsif 
    redirect_to root_path
