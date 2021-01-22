@@ -24,6 +24,11 @@ RSpec.describe Order, type: :model do
       @order.valid?
       expect(@order.errors.full_messages).to include("Postal code can't be blank")
     end
+    it '郵便番号にハイフンが無いと購入できない' do
+      @order.postal_code = 1111111
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Postal code はハイフンが必要です")
+    end
     it '都道府県が無いと購入できない' do
       @order.prefecture_id = nil
       @order.valid?
@@ -43,6 +48,16 @@ RSpec.describe Order, type: :model do
       @order.tel_num = nil
       @order.valid?
       expect(@order.errors.full_messages).to include("Tel num can't be blank")
+    end
+    it '電話番号が12桁以上では購入できない' do
+      @order.tel_num = 111111111111
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Tel num is too long (maximum is 11 characters)")
+    end
+    it '数字以外の文字が混じっている場合購入できない' do
+      @order.tel_num = 'aaaaaaaaaa'
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Tel num is not a number")
     end
   end
 end

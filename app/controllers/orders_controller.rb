@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
+  before_action :item_find, only:[:index, :create]
+
   def index
-  @item = Item.find(params[:item_id])
-  # binding.pry
   if user_signed_in? && current_user != @item.user && @item.order_history == nil
     @order = Order.new
     elsif 
@@ -11,9 +11,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order = Order.new(order_params)
-    # binding.pry
     if @order.valid? 
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       Payjp::Charge.create(
@@ -33,4 +31,9 @@ class OrdersController < ApplicationController
   def order_params 
     params.permit(:prefecture_id, :postal_code, :city, :detail_address, :building_name, :tel_num, :item_id, :token).merge(user_id: current_user.id)
   end
+
+  def item_find
+    @item = Item.find(params[:item_id])
+  end
+
 end
