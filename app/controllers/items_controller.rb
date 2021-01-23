@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if current_user != @item.user
+    if current_user != @item.user or @item.order_history != nil 
        redirect_to root_path
     end
   end
