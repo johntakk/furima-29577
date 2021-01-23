@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   def index
   if current_user != @item.user && @item.order_history == nil
     @order = Order.new
-    elsif 
+  else
    redirect_to root_path
   end
 
